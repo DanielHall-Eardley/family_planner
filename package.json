@@ -1,0 +1,28 @@
+{
+  "name": "family_planner",
+  "version": "1.0.0",
+  "description": "An app to help with adulting",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "build": "webpack css-minify -d static/css",
+    "watch": "webpack --watch"
+  },
+  "author": "Daniel Hall-Eardley",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "pg": "^8.4.0",
+    "webpack": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.1",
+    "babel-jest": "^26.6.1",
+    "css-minimizer-webpack-plugin": "^1.1.5",
+    "jest": "^26.6.1",
+    "mini-css-extract-plugin": "^1.2.0"
+  }
+}

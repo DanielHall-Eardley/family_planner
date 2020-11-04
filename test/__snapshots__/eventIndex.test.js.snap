@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event creation form matches snapshot 1`] = `
+<main>
+  <form
+    class="create-event"
+  >
+    <label
+      for="alert-name"
+    />
+    <input
+      id="alert-name"
+      type="text"
+    />
+    <label
+      for="alert-date"
+    />
+    <input
+      id="alert-date"
+      type="date"
+    />
+    <label
+      for="img-url"
+    />
+    <input
+      id="img-url"
+      type="text"
+    />
+    <label
+      for="alert-type"
+    />
+    <select
+      class="alert-type"
+    >
+      <option />
+      <option />
+    </select>
+    <label
+      for="alert-desc"
+    />
+    <textarea
+      id="alert-desc"
+    />
+  </form>
+</main>
+`;
