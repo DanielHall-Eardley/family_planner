@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS rec_event (
   event_name VARCHAR(80) NOT NULL,
   description TEXT,
   img_url TEXT
-  member_id UUID REFERENCES member(member_id)
+  creator_id UUID REFERENCES member(member_id)
 );
 `
 
