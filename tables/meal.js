@@ -3,7 +3,7 @@ const table = `
     meal_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name TEXT NOT NULL,
     date DATE NOT NULL,
-    family_member_id UUID REFERENCES family(family_id) 
+    family_member_id UUID REFERENCES family_member(family_member_id) 
   );
 `
 

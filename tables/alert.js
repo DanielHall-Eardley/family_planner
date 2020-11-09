@@ -6,7 +6,7 @@ const table = `
     type VARCHAR(8) NOT NULL,
     description TEXT,
     img_url TEXT,
-    creator_id UUID NOT NULL REFERENCES member(member_id),
+    creator_id UUID NOT NULL REFERENCES family_member(family_member_id)
   );
 `
 

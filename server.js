@@ -3,6 +3,7 @@ const app = express()
 
 const path = require('path')
 const createTables = require('./table_array')
+const db = require('./db')
 
 const result = require('dotenv').config()
  
@@ -11,9 +12,9 @@ if (result.error) {
 }
 
 
-// for (let table of createTables) {
-//   db.query(table)
-// }
+for (let table of createTables) {
+  db.query(table)
+}
 
 const homeRoutes = require('./routes/home')
 const eventRoutes = require('./routes/event')

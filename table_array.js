@@ -4,21 +4,25 @@ const family = require('./tables/family')
 const ingredient = require('./tables/ingredient')
 const meal = require('./tables/meal')
 const rec_event = require('./tables/rec_event')
-const step = require('./tables/step')
-const ing_list = require('./tables/ing_list')
+const rec_event_date = require('./tables/rec_event_date')
 const meal_step = require('./tables/meal_step')
-const member = require('./tables/member')
+const shopping_list = require('./tables/shopping_list')
+const store = require('./tables/store')
+const order = require('./tables/order')
+const takeaway = require('./tables/takeaway')
 const uuid = 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";'
 
 module.exports = [
-  ingredient,
-  step,
   family,
-  rec_event,
-  alert,
-  member,
-  meal,
-  ing_list,
-  meal_step,
   family_member,
+  alert,
+  takeaway,
+  meal,
+  rec_event,
+  shopping_list,
+  store,
+  ingredient,
+  meal_step,
+  rec_event_date,
+  order,
 ]
