@@ -4,22 +4,14 @@ const { formatISO } = require('date-fns')
 const getHome = async (req, res, next) => {
   try {
     const now = formatISO(new Date())
-    const familyId = req.params.familyId
-
+    const familyMemberId = req.params.id
+    const parameters = [familyMemberId, now]
     const alertQuery = `
       SELECT * FROM alert
-      WHERE alert.family_id = ${familyId} AND
-      alert.alert_date = ${now}
     `
     
     const mealQuery = `
-      SELECT * FROM meal as m
-      INNER JOIN ing_list AS il
-      ON m.meal_id = il.meal_id
-      INNER JOIN ingredient as ing
-      ON ing.ingredient_id = il.ingredient_id
-      WHERE m.date = ${now} 
-      AND m.family_id = ${familyId}
+      SELECT * FROM meal
     `
 
     const statusQuery = `
@@ -29,12 +21,6 @@ const getHome = async (req, res, next) => {
         d.start,
         d.end 
       FROM family_member
-      INNER JOIN member as m USING(member_id)
-      INNER JOIN rec_event as e USING(member_id)
-      INNER JOIN rec_event_date d USING(rec_event_id)
-      WHERE family_member.family_id = ${familyId}
-      AND d.start < ${now} 
-      ANS d.end > ${now}
     `
 
     const [
@@ -42,9 +28,9 @@ const getHome = async (req, res, next) => {
       meal,
       familyStatus
     ] = await Promise.all([
-      db.query(alertQuery),
-      db.query(mealQuery),
-      db.query(statusQuery)
+      db.query(alertQuery, parameters),
+      db.query(mealQuery, parameters),
+      db.query(statusQuery, parameters)
     ])
 
     const data = {

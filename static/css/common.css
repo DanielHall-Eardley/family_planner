@@ -16,7 +16,8 @@
   --white: white;
 
   /*Fonts*/
-  --ft-df: .8rem
+  --ft-df: .8rem;
+  --ft-heading: 1.4rem;
   --ft-large: 2rem;
 
   /*Padding and Margins*/
@@ -77,12 +78,14 @@ button {
   outline: none;
   border: none;
   background: var(--pink);
-  color: var(--purple);
+  color: var(--light-blue);
   padding: var(--spc-sm);
+  font-weight: bold;
 }
 
 button:hover {
   background-color: var(--light-blue);
+  color: var(--pink);
 }
 
 /*Containers*/
@@ -117,4 +120,14 @@ input:focus, select:focus {
 label {
   color: var(--white);
   margin-bottom: var(--spc-sm);
+}
+
+.form-title {
+  margin-bottom: var(--spc-lg);
+  font-size: var(--ft-heading);
+  color: var(--yellow);
+}
+
+.form-submit {
+  margin-top: var(--spc-lg);
 }

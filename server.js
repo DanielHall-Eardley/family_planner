@@ -12,9 +12,9 @@ if (result.error) {
 }
 
 
-for (let table of createTables) {
-  db.query(table)
-}
+// for (let table of createTables) {
+//   db.query(table)
+// }
 
 const homeRoutes = require('./routes/home')
 const eventRoutes = require('./routes/event')

@@ -1,12 +1,20 @@
 const eventForm = new DocumentFragment()
 
+const title = document.createElement('h3')
+title.className = 'form-title'
+const titleText = document.createTextNode('Create Event')
+title.appendChild(titleText)
+eventForm.appendChild(title)
+
 const createInput = (inputs, parent) => {
   for(let i of inputs) {
     const label = document.createElement('label')
-    label.innerText = i.label
+    const labelText = document.createTextNode(i.label)
+    label.appendChild(labelText)
     label.setAttribute('for', i.id)
     const input = document.createElement('input')
     input.setAttribute('type', i.type)
+    input.setAttribute('name', i.name)
     input.id = i.id
     parent.appendChild(label)
     parent.appendChild(input)
@@ -35,32 +43,48 @@ const eventInputs = [
 ]
 
 createInput(eventInputs, eventForm)
+
 const select = document.createElement('select')
 select.className = 'alert-type'
 select.setAttribute('name', 'eventType')
-const options = ['task', 'social']
 
+const options = ['Select a event type', 'Boring chore task', 'Happy social funtimes']
 for (let optName of options) {
   const option = document.createElement('option')
-  option.innerText = optName
+  const optionName = document.createTextNode(optName)
+
+  if (optName === 'Select a event type') {
+    option.setAttribute('selected', true)
+    option.setAttribute('disabled', true)
+  }
+
+  option.appendChild(optionName)
   select.appendChild(option)
 }
 
 const descLabel = document.createElement('label')
 descLabel.setAttribute('for', 'alert-desc')
-descLabel.innerText = 'Enter a brief description'
+const descLabelText = document.createTextNode('Enter a brief description')
+descLabel.appendChild(descLabelText)
 
 const typeLabel = document.createElement('label')
 typeLabel.setAttribute('for', 'alert-type')
-typeLabel.innerText = 'Choose type of event'
+const typeLabelText = document.createTextNode('Enter a brief description')
+typeLabel.appendChild(typeLabelText)
 
 const textarea = document.createElement('textarea')
-select.setAttribute('name', 'eventDescription')
+textarea.setAttribute('name', 'eventDescription')
 textarea.id = 'alert-desc'
+
+const submitBtn = document.createElement('button')
+submitBtn.className = 'form-submit'
+const submitBtnText = document.createTextNode('Create')
+submitBtn.appendChild(submitBtnText)
 
 eventForm.appendChild(typeLabel)
 eventForm.appendChild(select)
 eventForm.appendChild(descLabel)
 eventForm.appendChild(textarea)
+eventForm.appendChild(submitBtn)
 
 export default eventForm

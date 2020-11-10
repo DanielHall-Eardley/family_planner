@@ -10,7 +10,11 @@
 <body>
   <nav class='header-nav'>
     <h1><%= section.slice(0, 1).toUpperCase() + section.slice(1) %></h1>
-    <% if (section !== 'home') { %>
+    <% if (
+      section == 'events' || 
+      section == 'meals' ||
+      section == 'schedule'
+    ) { %>
       <button class='create-btn'>
         Create new <%= section %>
       </button>
