@@ -5,42 +5,77 @@ exports[`Event creation form matches snapshot 1`] = `
   <form
     class="create-event"
   >
+    <h3
+      class="form-title"
+    >
+      Create Event
+    </h3>
     <label
-      for="alert-name"
-    />
+      for="alert-title"
+    >
+      Enter a name for your event
+    </label>
     <input
-      id="alert-name"
+      id="alert-title"
+      name="title"
       type="text"
     />
     <label
       for="alert-date"
-    />
+    >
+      Enter a date for your event
+    </label>
     <input
       id="alert-date"
+      name="date"
       type="date"
     />
     <label
       for="img-url"
-    />
+    >
+      Link an image to your event
+    </label>
     <input
       id="img-url"
+      name="imgUrl"
       type="text"
     />
     <label
       for="alert-type"
-    />
+    >
+      Enter a brief description
+    </label>
     <select
       class="alert-type"
+      name="eventType"
     >
-      <option />
-      <option />
+      <option
+        disabled="true"
+        selected="true"
+      >
+        Select a event type
+      </option>
+      <option>
+        Boring chore task
+      </option>
+      <option>
+        Happy social funtimes
+      </option>
     </select>
     <label
       for="alert-desc"
-    />
+    >
+      Enter a brief description
+    </label>
     <textarea
       id="alert-desc"
+      name="eventDescription"
     />
+    <button
+      class="form-submit"
+    >
+      Create
+    </button>
   </form>
 </main>
 `;
