@@ -7,7 +7,7 @@ const addFormListeners = (form, cb, state) => {
       child.nodeName === 'SELECT' ||
       child.nodeName === 'TEXTAREA'
     ) {
-      child.addEventListener('input', (event) => {
+      child.addEventListener('input', event => {
         cb(event, state)
       })
     }

@@ -10,27 +10,49 @@ beforeEach(() => {
 })
 
 test('Event listeners are added to input elements', () => {
-  const form = document.createElement('form')
-  const input = document.createElement('input')
-  const select = document.createElement('select')
-  const textarea = document.createElement('textarea')
+  const mockForm = {
+    children: [
+      {
+        nodeName: 'INPUT',
+        addEventListener: jest.fn()
+      },
+      {
+        nodeName: 'SELECT',
+        addEventListener: jest.fn()
+      },
+      {
+        nodeName: 'TEXTAREA',
+        addEventListener: jest.fn()
+      },
+    ]
+  }
   
-  form.appendChild(input)
-  form.appendChild(select)
-  form.appendChild(textarea)
-  
-  addFormListeners(form, mockCb, mockFormState)
-  expect(mockCb).toHaveBeenNthCalledWith(3, mockFormState)
+  addFormListeners(mockForm, mockCb, mockFormState)
+  expect(mockForm.children[0].addEventListener).toHaveBeenCalledTimes(1)
+  expect(mockForm.children[1].addEventListener).toHaveBeenCalledTimes(1)
+  expect(mockForm.children[2].addEventListener).toHaveBeenCalledTimes(1)
 })
 
 test('Event listeners are not added to any non-input elements', () => {
-  const form = document.createElement('form')
-  const label = document.createElement('label')
-  const button = document.createElement('button')
-  
-  form.appendChild(label)
-  form.appendChild(button)
+  const mockForm = {
+    children: [
+      {
+        nodeName: 'BUTTON',
+        addEventListener: jest.fn()
+      },
+      {
+        nodeName: 'H1',
+        addEventListener: jest.fn()
+      },
+      {
+        nodeName: 'DIV',
+        addEventListener: jest.fn()
+      },
+    ]
+  }
 
-  addFormListeners(form, mockCb, mockFormState)
-  expect(mockCb).not.toBeCalled()
+  addFormListeners(mockForm, mockCb, mockFormState)
+  expect(mockForm.children[0].addEventListener).not.toBeCalled()
+  expect(mockForm.children[1].addEventListener).not.toBeCalled()
+  expect(mockForm.children[2].addEventListener).not.toBeCalled()
 })

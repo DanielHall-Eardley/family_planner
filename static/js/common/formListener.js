@@ -1,9 +1,10 @@
 const formListener = (event, state) => {
   const key = event.target.name
+  const value = event.target.value
   const oldState = state.getCurrentState()
   
   const updatedState = {...oldState}
-  updatedState[key] = event.target.value
+  updatedState[key] = value
   state.updateState(updatedState)
 }
 

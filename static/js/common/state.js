@@ -1,6 +1,6 @@
 export class FormState {
-  constructor() {
-    this.state = {}
+  constructor(state) {
+    this.state = state ?? {}
   }
 
   updateState(newState) {
