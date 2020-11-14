@@ -80,4 +80,5 @@ A app for scheduling family events and co-ordinating tasks
 - Start
 - End 
 
-
+## Database Relationships
+![db_relationships](database_relationships.jpeg)
