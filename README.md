@@ -16,6 +16,8 @@ A app for scheduling family events and co-ordinating tasks
 - Id 
 - Name
 - Date
+- Start time
+- End time
 - Type
 - Description
 - Img url
