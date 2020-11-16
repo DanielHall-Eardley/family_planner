@@ -50,6 +50,7 @@ A app for scheduling family events and co-ordinating tasks
 - Name
 - Quantity
 - Unit
+- Purchased
 
 **Shopping list**
 - Meal id
