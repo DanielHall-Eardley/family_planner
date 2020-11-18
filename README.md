@@ -85,3 +85,5 @@ A app for scheduling family events and co-ordinating tasks
 
 ## Database Relationships
 ![db_relationships](database_relationships.jpeg)
+
+## Link to designs: https://www.figma.com/file/HZv2e4RLDoq32zcviVBptR/Untitled?node-id=6%3A6
