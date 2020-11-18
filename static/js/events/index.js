@@ -14,7 +14,11 @@ export const createEvent = () => {
   form.className = 'create-event'
   form.addEventListener('submit', async (event) => {
     event.preventDefault()
-    console.log(formState.getCurrentState())
+    const body = formState.getCurrentState()
+    const url = '/events/create'
+    const token = localStorage.getItem('token')
+    const response = await postRequest(body, url, token)
+    console.log(response)
   })
 
   form.appendChild(eventForm)
