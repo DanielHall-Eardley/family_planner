@@ -4,7 +4,7 @@ const {
   createEvent
  } = require('../controllers/event')
 
-router.get('/:id', getCalender)
+router.get('/', getCalender)
 
 router.post('/create', createEvent)
 

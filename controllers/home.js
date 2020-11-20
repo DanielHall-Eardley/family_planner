@@ -15,12 +15,7 @@ const getHome = async (req, res, next) => {
     `
 
     const statusQuery = `
-      SELECT 
-        m.member_name, 
-        e.event_name,
-        d.start,
-        d.end 
-      FROM family_member
+      SELECT * FROM family_member
     `
 
     const [
@@ -38,7 +33,6 @@ const getHome = async (req, res, next) => {
       alerts,
       meal,
       familyStatus,
-      familyId,
       section: 'home'
     }
   
