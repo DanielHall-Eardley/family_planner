@@ -1,12 +1,16 @@
 import createBtn from '../common/createBtn.js'
 import postRequest from '../common/postRequest.js'
-import formListener from '../common/formListener'
+import inputListener from '../common/inputListener'
 import addFormListeners from '../common/addFormListeners'
 import eventForm from './eventForm.js'
 
 import { FormState } from '../common/state'
 export const formState = new FormState()
 
+/*
+Create an event form with JavaScript,
+add input and form submission event listeners
+*/
 export const createEvent = () => {
   const main = document.querySelector('main')
   const form = document.createElement('form')
@@ -22,10 +26,11 @@ export const createEvent = () => {
   })
 
   form.appendChild(eventForm)
-  addFormListeners(form, formListener, formState)
+  addFormListeners(form, inputListener, formState)
   main.appendChild(form)
 }
 
+/*Attach the form creation to a button*/
 window.onload = () => {
   createBtn(createEvent, document)
 }

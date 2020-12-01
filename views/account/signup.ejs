@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <link rel="stylesheet" href='/signup.min.css'>
+  <link rel="stylesheet" href="/common.min.css">
+</head>
+<body>
+  <h1><%= action + ' family'%></h1>
+  <form>
+    <label for="signup-name">Enter your last name</label>
+    <input type="text" id='signup-name'>
+    <label for="signup-password">
+      <% if (action === 'create') { %>
+        Create a family password 
+      <% } else { %>
+        Enter the family password
+      <% } %>
+    </label>
+    <input type="text" id='signup-password'>
+    <label for="signup-email">Enter your email</label>
+    <input type="text" id='signup-email'>
+    <button><%= action %></button>
+  </form>
+  <script defer src="<%= host + '/signup.bundle.js' %>"></script>
+</body>
+</html>

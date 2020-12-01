@@ -1,6 +1,6 @@
-import { host } from '../../global.js'
+import { host } from '../../../global.js'
 
-const postRequest = async (body, url, token) => {
+const postRequest = async (body, url, token, fetch) => {
   const res = await fetch(host + url, {
     headers: {
       'Content-Type': 'application/json',

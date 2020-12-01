@@ -1,4 +1,4 @@
-import formListener from '../static/js/common/formListener'
+import inputListener from '../static/js/common/inputListener'
 import { FormState } from '../static/js/common/state'
 
 test('Add key value pair in empty state', () => {
@@ -10,7 +10,7 @@ test('Add key value pair in empty state', () => {
     }
   }
 
-  formListener(event, state)
+  inputListener(event, state)
   expect(state.getCurrentState()).toEqual({ key: 'value' })
 })
 
@@ -23,7 +23,7 @@ test('Add key value pair in state', () => {
     }
   }
 
-  formListener(event, state)
+  inputListener(event, state)
   expect(state.getCurrentState()).toEqual({ key: 'value', existingKey: 'existingValue' })
 })
 
@@ -36,6 +36,6 @@ test('Update key value pair in state', () => {
     }
   }
 
-  formListener(event, state)
+  inputListener(event, state)
   expect(state.getCurrentState()).toEqual({ existingKey: 'newValue'})
 })

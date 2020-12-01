@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href='/login.min.css'>
+  <link rel="stylesheet" href="/common.min.css">
+</head>
+<body>
+  <h1>Login</h1>
+  <form class='login-form' method="POST" action="<%=`${host}/account/login` %>">
+    <img src="" alt="Profile picture">
+    <label for="login-email">Enter your email address</label>
+    <input type="text" id="login-email">
+    <label for="login-password">Enter your password</label>
+    <input type="text" id="login-password">
+    <button>Login</button>
+  </form>
+  <a href="<%= `${host}/account/signup/join` %>">Join your family</a>
+  <a href="<%= `${host}/account/signup/create` %>">Create your family</a>
+</body>
+</html>

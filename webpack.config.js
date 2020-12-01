@@ -7,6 +7,8 @@ module.exports = {
     events: './static/js/events/index.js',
     meals: './static/js/meals/index.js',
     todo: './static/js/todo/index.js',
+    landing: './static/js/landing/index.js',
+    signup: './static/js/signup/index.js'
   },
   output: {
     filename: '[name].bundle.js',

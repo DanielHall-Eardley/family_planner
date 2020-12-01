@@ -1,4 +1,10 @@
-const formListener = (event, state) => {
+/*
+This is a called when an input changes and 
+updates state using the key value pair of the
+input's name and value.
+*/
+
+const inputListener = (event, state) => {
   const key = event.target.name
   const value = event.target.value
   const oldState = state.getCurrentState()
@@ -8,4 +14,4 @@ const formListener = (event, state) => {
   state.updateState(updatedState)
 }
 
-export default formListener
+export default inputListener
