@@ -9,9 +9,9 @@
 </head>
 <body>
   <h1><%= action + ' family'%></h1>
-  <form>
+  <form class='signup-form'>
     <label for="signup-name">Enter your last name</label>
-    <input type="text" id='signup-name'>
+    <input type="text" id='signup-name' name='lastName'>
     <label for="signup-password">
       <% if (action === 'create') { %>
         Create a family password 
@@ -19,10 +19,10 @@
         Enter the family password
       <% } %>
     </label>
-    <input type="text" id='signup-password'>
+    <input type="text" id='signup-password' name="password">
     <label for="signup-email">Enter your email</label>
-    <input type="text" id='signup-email'>
-    <button><%= action %></button>
+    <input type="text" id='signup-email' name="email">
+    <button class='signup-btn'><%= action %></button>
   </form>
   <script defer src="<%= host + '/signup.bundle.js' %>"></script>
 </body>

@@ -1,5 +1,5 @@
 import createBtn from '../common/createBtn.js'
-import postRequest from '../common/postRequest.js'
+import postRequestAuth from '../common/postRequestAuth.js'
 import inputListener from '../common/inputListener'
 import addFormListeners from '../common/addFormListeners'
 import eventForm from './eventForm.js'
@@ -21,7 +21,7 @@ export const createEvent = () => {
     const body = formState.getCurrentState()
     const url = '/events/create'
     const token = localStorage.getItem('token')
-    const response = await postRequest(body, url, token)
+    const response = await postRequestAuth(body, url, token)
     console.log(response)
   })
 

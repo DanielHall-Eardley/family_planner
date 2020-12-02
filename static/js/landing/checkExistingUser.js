@@ -1,8 +1,11 @@
-import redirect from './redirect'
-
 let timeoutId;
 
-const checkExistingUser = () => {
+/*If "visitedFP" is true, the user 
+has previously visited app and is redirected
+to token authentication. Else a landing screen displays
+for 5 seconds before redirecting to login. The user can
+also trigger the redirect process at anytime with a button*/
+const checkExistingUser = (redirect, btn) => {
   const checkVisited = localStorage.getItem('visitedFP')
   if (checkVisited) {
     redirect()
@@ -12,9 +15,9 @@ const checkExistingUser = () => {
     }, 5000)
 
     localStorage.setItem('visitedFP', true)
-    const btn = document.querySelector('.next-btn')
     btn.addEventListener('click', () => {
       clearTimeout(timeoutId)
+      redirect()
     })
   }
 }

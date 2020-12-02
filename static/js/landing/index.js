@@ -1,5 +1,8 @@
 import checkExistingUser from './checkExistingUser.js'
+import redirect from './redirect'
 
 window.onload = async () => {
-  checkExistingUser()
+  const btn = document.querySelector('.next-btn')
+
+  checkExistingUser(redirect, btn)
 }

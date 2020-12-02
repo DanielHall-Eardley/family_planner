@@ -1,9 +1,10 @@
 import { host } from '../../../global.js'
 
-const postRequest = async (body, url) => {
+const postRequestAuth = async (body, url, token) => {
   const res = await fetch(host + url, {
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': token
     },
     method: 'POST',
     body: JSON.stringify(body)
@@ -13,4 +14,4 @@ const postRequest = async (body, url) => {
   return resData
 }
 
-export default postRequest
+export default postRequestAuth
