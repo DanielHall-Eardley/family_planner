@@ -1,5 +1,6 @@
 const db = require('../db')
 const { host } = require('../global')
+const bcrypt = require('bcrypt')
 
 const getLogin = async (req, res, next) => {
   try {
@@ -57,15 +58,27 @@ const login = async (req, res, next) => {
 
 const createFamily = async (req, res, next) => {
   try {
-    const familyId = req.params.familyId
+    console.log(req.body)
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
 
-    const data = {
-      host,
-      section: 'events',
-      familyId
+    if (!hashedPassword) {
+      throw new Error ('Unable to create password')
     }
 
-    res.render('./events/index.ejs', data)
+    const queryText = `INSERT INTO family(
+      family_name,
+      family_password
+    ) VALUES (
+      $1,
+      $2
+    ) RETURNING family.family_name`
+
+    const params = [req.body.lastName, hashedPassword]
+    const result = await db.query(queryText, params)
+    
+    res.status(200).json({
+      msg: result.rows[0].family_name + ' has been created'
+    })
   } catch (error) {
     next(error)
   }

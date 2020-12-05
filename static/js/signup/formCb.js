@@ -4,7 +4,7 @@ import formSubmit from './formSubmit.js'
 /*Grab the signup btn innerText to determine if the user
 is joining or creating a family. Use javascript to create 
 the profile creation form and overlay it so the user 
-can begin poulating the inputs as the server joins or
+can begin populating the inputs as the server joins or
 creates a family*/
 const formCb = event => {
   event.preventDefault()

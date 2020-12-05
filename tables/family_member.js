@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS family_member (
   family_id UUID NOT NULL REFERENCES family(family_id),
   first_name VARCHAR(30) NOT NULL,
   relation_type VARCHAR(15) NOT NULL,
-  birth_date DATE NOT NULL
+  birth_date DATE NOT NULL,
+  email TEXT NOT NULL
 );
 `
 

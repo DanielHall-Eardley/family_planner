@@ -13,15 +13,13 @@
     <label for="signup-name">Enter your last name</label>
     <input type="text" id='signup-name' name='lastName'>
     <label for="signup-password">
-      <% if (action === 'create') { %>
+      <% if (action.toLowerCase() === 'create') { %>
         Create a family password 
-      <% } else { %>
+      <% } else if (action.toLowerCase() === 'join') { %>
         Enter the family password
       <% } %>
     </label>
-    <input type="text" id='signup-password' name="password">
-    <label for="signup-email">Enter your email</label>
-    <input type="text" id='signup-email' name="email">
+    <input type="password" id='signup-password' name="password">
     <button class='signup-btn'><%= action %></button>
   </form>
   <script defer src="<%= host + '/signup.bundle.js' %>"></script>
