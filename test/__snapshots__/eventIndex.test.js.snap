@@ -8,7 +8,7 @@ exports[`Event creation form matches snapshot 1`] = `
     <h3
       class="form-title"
     >
-      Create Event
+      Create event
     </h3>
     <label
       for="alert-title"

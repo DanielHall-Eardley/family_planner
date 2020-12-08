@@ -5,7 +5,8 @@ const {
   getJoinFamily,
   login,
   joinFamily,
-  createFamily
+  createFamily,
+  createFamilyMember
  } = require('../controllers/account')
 
 router.get('/login', getLogin)
@@ -19,5 +20,7 @@ router.post('/login', login)
 router.post('/signup/join', joinFamily)
 
 router.post('/signup/create', createFamily)
+
+router.post('/profile/create', createFamilyMember)
 
 module.exports = router

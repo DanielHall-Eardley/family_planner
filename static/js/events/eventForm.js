@@ -1,25 +1,10 @@
+import createFormInput from '../common/createFormInput'
+import createFormTitle from '../common/createFormTitle'
+import createFormBtn from '../common/createFormBtn'
+
 const eventForm = new DocumentFragment()
 
-const title = document.createElement('h3')
-title.className = 'form-title'
-const titleText = document.createTextNode('Create Event')
-title.appendChild(titleText)
-eventForm.appendChild(title)
-
-const createInput = (inputs, parent) => {
-  for(let i of inputs) {
-    const label = document.createElement('label')
-    const labelText = document.createTextNode(i.label)
-    label.appendChild(labelText)
-    label.setAttribute('for', i.id)
-    const input = document.createElement('input')
-    input.setAttribute('type', i.type)
-    input.setAttribute('name', i.name)
-    input.id = i.id
-    parent.appendChild(label)
-    parent.appendChild(input)
-  }
-}
+createFormTitle('Create event', eventForm)
 
 const eventInputs = [
   {
@@ -42,7 +27,7 @@ const eventInputs = [
   }
 ]
 
-createInput(eventInputs, eventForm)
+createFormInput(eventInputs, eventForm)
 
 const select = document.createElement('select')
 select.className = 'alert-type'
@@ -76,15 +61,11 @@ const textarea = document.createElement('textarea')
 textarea.setAttribute('name', 'eventDescription')
 textarea.id = 'alert-desc'
 
-const submitBtn = document.createElement('button')
-submitBtn.className = 'form-submit'
-const submitBtnText = document.createTextNode('Create')
-submitBtn.appendChild(submitBtnText)
-
 eventForm.appendChild(typeLabel)
 eventForm.appendChild(select)
 eventForm.appendChild(descLabel)
 eventForm.appendChild(textarea)
-eventForm.appendChild(submitBtn)
+
+createFormBtn('Create', eventForm)
 
 export default eventForm
