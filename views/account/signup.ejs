@@ -20,6 +20,10 @@
       <% } %>
     </label>
     <input type="password" id='signup-password' name="password">
+    <% if (action.toLowerCase() === 'join') { %>
+      <label for="family-code">Enter your family's unique six digit code</label>
+      <input type="number" id="signup-code" name="familyCode">
+    <% } %>
     <button class='signup-btn'><%= action %></button>
   </form>
   <script defer src="<%= host + '/signup.bundle.js' %>"></script>

@@ -2,6 +2,8 @@ const db = require('../db')
 const { host } = require('../global')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const catchError = require('../util/catchError')
+const throwError = require('../util/throwError')
 
 const getLogin = async (req, res, next) => {
   try {
@@ -69,7 +71,7 @@ const createFamily = async (req, res, next) => {
 
     const queryText = `INSERT INTO family(
       family_name,
-      family_password
+      family_password,
       family_code
     ) VALUES (
       $1,
@@ -89,15 +91,27 @@ const createFamily = async (req, res, next) => {
   }
 }
 
-const joinFamily = async (req, res, next) => {
-  try {
-    /*need to generate a unique six digit code
-    on family creation to uniquely identify the family
-    for other members to join*/
-  } catch (error) {
-    next(error)
+const joinFamily = catchError(async (req, res) => {
+  const params = [req.body.lastName, req.body.familyCode]
+  const findFamilyQuery = `
+    SELECT * FROM family
+    WHERE family_name=$1 AND family_code=$2
+  ` 
+  const result = await db.query(findFamilyQuery, params)
+  if (result.rowCount < 1) {
+    throwError('Family not found', 404)
   }
-}
+  const family = result.rows[0]
+  const checkPassword = await bcrypt.compare(req.body.password, family.family_password)
+  if (!checkPassword) {
+    throwError('Family not found', 404)
+  }
+
+  res.status(200).json({
+    msg: 'Joined the ' + family.family_name + 'family',
+    familyId: family.family_id
+  })
+})
 
 const createFamilyMember = async (req, res, next) => {
   try {

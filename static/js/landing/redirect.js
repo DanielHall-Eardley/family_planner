@@ -9,7 +9,6 @@ const redirect = () => {
     window.location.replace(`${host}/home?token=${token}`)
   } else {
     window.location.replace(host + '/account/login')
-    console.log(location.href)
   }
 }
 

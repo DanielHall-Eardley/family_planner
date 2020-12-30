@@ -1,6 +1,16 @@
 import redirect from '../static/js/landing/redirect.js'
 import {host} from '../global.js'
 
+Object.defineProperty(window, 'location', {
+  writable: true,
+  value: {
+    replace(url) {
+      this.href = url
+    },
+    href: ''
+  }
+})
+
 beforeEach(() => {
   localStorage.clear()
 })

@@ -11,12 +11,12 @@ beforeEach(() => {
 })
 
 
-test('Signup form is replaced with profile form', () => {
-  appendProfileForm('family id')
-  console.log(main.children)
+// test('Signup form is replaced with profile form', () => {
+//   console.log(main.children[0].className)
+//   appendProfileForm('family id')
 
-  const profileForm = main.children[0]
-  expect(profileForm.className).toBe('profile-form')
-})
+//   const profileForm = main.children[0]
+//   expect(profileForm.className).toBe('profile-form')
+// })
 
 
