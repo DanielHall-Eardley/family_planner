@@ -9,6 +9,7 @@ const profileFormSubmit = async (familyId, state) => {
   }
 
   const response = await postRequest(body, url)
+  localStorage.removeItem('familyId')
   localStorage.setItem('token', response.token)
   window.location.href = host + '/home'
 }

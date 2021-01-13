@@ -11,7 +11,8 @@ const signupFormSubmit = async (signupType, state) => {
   const body = state.getCurrentState()
   const response = await postRequest(body, url)
   console.log(response)
-  appendProfileForm(response.familyId)
+  localStorage.setItem('familyId', response.familyId)
+  appendProfileForm()
 }
 
 export default signupFormSubmit
