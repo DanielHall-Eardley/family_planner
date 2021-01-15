@@ -1,10 +1,10 @@
 import postRequest from '../common/postRequest'
 import { host } from '../../../global'
 
-const profileFormSubmit = async (familyId, state) => {
+const profileFormSubmit = async (state) => {
   const url = '/account/profile/create'
   const body = {
-    familyId,
+    familyId: localStorage.getItem('familyId'),
     ...state.getCurrentState()
   }
 

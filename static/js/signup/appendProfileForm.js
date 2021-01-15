@@ -8,7 +8,6 @@ import { FormState } from '../common/state'
 export const formState = new FormState()
 
 const appendProfileForm = () => {
-  const familyId = localStorage.getItem(familyId) 
   const signupForm = document.querySelector('.signup-form')
   const newForm = document.createElement('form')
   newForm.className = 'profile-form'
@@ -18,7 +17,7 @@ const appendProfileForm = () => {
 
   newForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    profileFormSubmit(familyId, formState)
+    profileFormSubmit(formState)
   })
 }
 
